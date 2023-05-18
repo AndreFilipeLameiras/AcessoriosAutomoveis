@@ -20,7 +20,7 @@ class BdAcessoriosOpenHelper(
         requireNotNull(db)
         TabelaAcesInter(db).cria()
         TabelaAcesExter(db).cria()
-        //TabelaCarro(db).cria()
+        TabelaCarro(db).cria()
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {

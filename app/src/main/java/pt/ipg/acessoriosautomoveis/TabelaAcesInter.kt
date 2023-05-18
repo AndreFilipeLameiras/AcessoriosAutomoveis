@@ -2,7 +2,7 @@ package pt.ipg.acessoriosautomoveis
 
 import android.database.sqlite.SQLiteDatabase
 
-private const val NOME_TABELA = "acessoriosInterior"
+
 
 class TabelaAcesInter(db: SQLiteDatabase): TabelaDB(db, NOME_TABELA) {
     override fun cria() {
@@ -10,5 +10,8 @@ class TabelaAcesInter(db: SQLiteDatabase): TabelaDB(db, NOME_TABELA) {
 
     }
 
+    companion object {
+        const val NOME_TABELA = "acessoriosInterior"
+    }
 
 }
