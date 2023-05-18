@@ -3,6 +3,7 @@ package pt.ipg.acessoriosautomoveis
 import android.content.ContentValues
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 
 abstract class TabelaDB(val db: SQLiteDatabase, val nome: String) {
 
@@ -27,4 +28,11 @@ abstract class TabelaDB(val db: SQLiteDatabase, val nome: String) {
 
     fun elimina(where: String, argsWhere: Array<String>)=
         db.delete(nome, where, argsWhere)
+
+
+
+    companion object {
+        const val CHAVE_TABELA = "${BaseColumns._ID} INTEGER PRIMARY KEY AUTOINCREMENT"
+    }
+
 }
