@@ -26,4 +26,9 @@ class BdAcessoriosOpenHelper(
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
 
     }
+
+
+    companion object {
+        const val NOME_BASE_DADOS = "carro.db"
+    }
 }
