@@ -12,6 +12,9 @@ class TabelaAcesExter (db: SQLiteDatabase): TabelaDB(db, NOME_TABELA) {
 
     companion object {
         const val NOME_TABELA = "acessoriosExterior"
+        const val CAMPO_NOME = "nome"
+        const val CAMPO_MARCA = "marca"
+        const val CAMPO_COR = "cor"
     }
 
 }
