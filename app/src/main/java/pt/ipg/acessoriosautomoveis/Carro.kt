@@ -1,6 +1,8 @@
 package pt.ipg.acessoriosautomoveis
 
 import android.content.ContentValues
+import android.database.Cursor
+import android.provider.BaseColumns
 
 data class Carro(
     var marca: String,
@@ -20,6 +22,24 @@ data class Carro(
 
         return valores
 
+    }
+
+    companion object{
+        fun fromCursor(cursor: Cursor): Carro{
+            val posId = cursor.getColumnIndex(BaseColumns._ID)
+            val posMarca = cursor.getColumnIndex(TabelaCarro.CAMPO_MARCA)
+            val posCor = cursor.getColumnIndex(TabelaCarro.CAMPO_COR)
+            val posAcessIntFK = cursor.getColumnIndex(TabelaCarro.CAMPO_FK_ACESSINTER)
+            val posAcessExtFK = cursor.getColumnIndex(TabelaCarro.CAMPO_FK_ACESSEXTER)
+
+            val id = cursor.getLong(posId)
+            val marca = cursor.getString(posMarca)
+            val cor = cursor.getString(posCor)
+            val acessIntId = cursor.getLong(posAcessIntFK)
+            val acessExtId = cursor.getLong(posAcessExtFK)
+
+            return Carro(marca, cor, acessIntId, acessExtId, id)
+        }
     }
 
 }

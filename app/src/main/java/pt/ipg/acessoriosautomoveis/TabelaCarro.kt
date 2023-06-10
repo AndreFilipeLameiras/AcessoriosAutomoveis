@@ -16,6 +16,8 @@ class TabelaCarro (db: SQLiteDatabase): TabelaDB(db, NOME_TABELA){
         const val CAMPO_COR = "cor"
         const val CAMPO_FK_ACESSINTER = "id_acinter"
         const val CAMPO_FK_ACESSEXTER = "id_acexter"
+
+        val CAMPOS = arrayOf(BaseColumns._ID, CAMPO_MARCA, CAMPO_COR, CAMPO_FK_ACESSINTER, CAMPO_FK_ACESSEXTER)
     }
 
 }
