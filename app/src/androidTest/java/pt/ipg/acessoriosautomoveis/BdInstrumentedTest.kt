@@ -177,4 +177,43 @@ class BdInstrumentedTest {
         assert(cursorTodosAcessExter.count > 1)
     }
 
+    @Test
+    fun consegueLerCarros(){
+        val bd = getWritableDatabasse()
+
+        val acessInt = AcessInter("protector", "wrc", "protector de cinto")
+        insereAcessInt(bd, acessInt)
+
+        val acessExt = AcessExter("tornilhos", "locks", "prateados")
+        insereAcessExt(bd, acessExt)
+
+        val carro1 = Carro("Nissan", "vermelho", acessInt.id, acessExt.id)
+        insereCarro(bd, carro1)
+
+        val tabelaCarro = TabelaCarro(bd)
+
+        val cursor = tabelaCarro.consulta(
+            TabelaCarro.CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(carro1.id.toString()),
+            null,
+            null,
+            null
+        )
+
+        assert(cursor.moveToNext())
+
+        val carroBD = Carro.fromCursor(cursor)
+
+        assertEquals(carro1, carroBD)
+
+        val cursorTodosCarros = tabelaCarro.consulta(
+            TabelaCarro.CAMPOS,
+            null, null,null,null,
+            TabelaCarro.CAMPO_MARCA
+        )
+
+        assert(cursorTodosCarros.count > 1)
+    }
+
 }
