@@ -5,9 +5,8 @@ import android.content.ContentValues
 data class Carro(
     var marca: String,
     var cor: String,
-    var categoria: String,
-    var idAcessInter: Int,
-    var idAcessExter: Int,
+    var idAcessInter: Long,
+    var idAcessExter: Long,
     var id: Long = -1
 ){
 
@@ -20,7 +19,7 @@ data class Carro(
         valores.put(TabelaCarro.CAMPO_FK_ACESSEXTER, idAcessExter)
 
         return valores
-        
+
     }
 
 }
