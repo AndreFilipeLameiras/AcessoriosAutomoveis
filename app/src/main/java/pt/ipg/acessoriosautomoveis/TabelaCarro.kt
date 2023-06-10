@@ -7,11 +7,15 @@ import android.provider.BaseColumns
 
 class TabelaCarro (db: SQLiteDatabase): TabelaDB(db, NOME_TABELA){
     override fun cria() {
-        db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA, marca TEXT NOT NULL, cor TEXT, categoria TEXT NOT NULL, id_acesInter INTEGER NOT NULL, id_acesExter INTEGER NOT NULL, FOREIGN KEY (id_acesInter) REFERENCES ${TabelaAcesInter.NOME_TABELA}(${BaseColumns._ID}) ON DELETE RESTRICT, FOREIGN KEY (id_acesExter) REFERENCES ${TabelaAcesExter.NOME_TABELA}(${BaseColumns._ID}) ON DELETE RESTRICT )")
+        db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA, $CAMPO_MARCA TEXT NOT NULL, $CAMPO_COR TEXT, $CAMPO_FK_ACESSINTER INTEGER NOT NULL, $CAMPO_FK_ACESSEXTER INTEGER NOT NULL, FOREIGN KEY ($CAMPO_FK_ACESSINTER) REFERENCES ${TabelaAcesInter.NOME_TABELA}(${BaseColumns._ID}) ON DELETE RESTRICT, FOREIGN KEY ($CAMPO_FK_ACESSEXTER) REFERENCES ${TabelaAcesExter.NOME_TABELA}(${BaseColumns._ID}) ON DELETE RESTRICT )")
     }
 
     companion object{
         const val NOME_TABELA = "carro"
+        const val CAMPO_MARCA = "marca"
+        const val CAMPO_COR = "cor"
+        const val CAMPO_FK_ACESSINTER = "id_acinter"
+        const val CAMPO_FK_ACESSEXTER = "id_acexter"
     }
 
 }
