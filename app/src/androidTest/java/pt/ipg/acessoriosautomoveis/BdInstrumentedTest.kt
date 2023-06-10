@@ -40,8 +40,18 @@ class BdInstrumentedTest {
         val openHelper = BdAcessoriosOpenHelper(getAppContext())
         val bd = openHelper.writableDatabase
 
-        val acessorio = AcessInter("radio", "sony", "autorradio")
-        val id = TabelaAcesInter(bd).insere(acessorio.toContentValues())
+        val acessInt = AcessInter("radio", "sony", "autorradio")
+        val id = TabelaAcesInter(bd).insere(acessInt.toContentValues())
+        assertNotEquals(-1,id)
+    }
+
+    @Test
+    fun consegueInserirAcessorioExterior(){
+        val openHelper = BdAcessoriosOpenHelper(getAppContext())
+        val bd = openHelper.writableDatabase
+
+        val acessExt = AcessExter("autocolante", "corona", "preto")
+        val id = TabelaAcesExter(bd).insere(acessExt.toContentValues())
         assertNotEquals(-1,id)
     }
 }
