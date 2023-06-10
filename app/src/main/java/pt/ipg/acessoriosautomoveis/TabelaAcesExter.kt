@@ -1,7 +1,7 @@
 package pt.ipg.acessoriosautomoveis
 
 import android.database.sqlite.SQLiteDatabase
-
+import android.provider.BaseColumns
 
 
 class TabelaAcesExter (db: SQLiteDatabase): TabelaDB(db, NOME_TABELA) {
@@ -15,6 +15,9 @@ class TabelaAcesExter (db: SQLiteDatabase): TabelaDB(db, NOME_TABELA) {
         const val CAMPO_NOME = "nome"
         const val CAMPO_MARCA = "marca"
         const val CAMPO_COR = "cor"
+
+
+        val CAMPOS = arrayOf(BaseColumns._ID, CAMPO_NOME, CAMPO_MARCA, CAMPO_COR)
     }
 
 }

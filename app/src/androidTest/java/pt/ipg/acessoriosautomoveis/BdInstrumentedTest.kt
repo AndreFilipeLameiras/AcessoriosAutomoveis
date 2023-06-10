@@ -2,6 +2,7 @@ package pt.ipg.acessoriosautomoveis
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
+import android.provider.BaseColumns
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
@@ -100,4 +101,80 @@ class BdInstrumentedTest {
         assertNotEquals(-1, carro.id)
 
     }
+
+
+    @Test
+    fun consegueLerAceInter(){
+        val bd = getWritableDatabasse()
+
+        val acessIntPunho = AcessInter("Punho de mudanças", "BC", "classico curto costura")
+        assertNotEquals(-1, acessIntPunho)
+
+        val acessIntTapete = AcessInter("tapete", "goodyear", "tapetes de borracha e alcatifa")
+        assertEquals(-1, acessIntTapete)
+
+        val tabelaAcessInter = TabelaAcesInter(bd)
+
+        val cursor = tabelaAcessInter.consulta(
+            TabelaAcesInter.CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(acessIntTapete.id.toString()),
+            null,
+            null,
+            null
+        )
+
+        assert(cursor.moveToNext())
+
+        val acessIntBD = AcessInter.fromCursor(cursor)
+
+        assertEquals(acessIntTapete, acessIntBD)
+
+        val cursorTodosAcessInter = tabelaAcessInter.consulta(
+            TabelaAcesInter.CAMPOS,
+            null, null, null, null,
+            TabelaAcesInter.CAMPO_NOME
+
+        )
+
+        assert(cursorTodosAcessInter.count > 1)
+    }
+
+    @Test
+    fun consegueLerAceExter(){
+        val bd = getWritableDatabasse()
+
+        val acessExtCorrente = AcessExter("corrente", "goodyear", "cinzenta")
+        assertNotEquals(-1, acessExtCorrente)
+
+        val acessExtTampoes = AcessExter("tampoes", "bridgtone", "verde")
+        assertEquals(-1, acessExtTampoes)
+
+        val tabelaAcessExter = TabelaAcesExter(bd)
+
+        val cursor = tabelaAcessExter.consulta(
+            TabelaAcesExter.CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(acessExtTampoes.id.toString()),
+            null,
+            null,
+            null
+        )
+
+        assert(cursor.moveToNext())
+
+        val acessExtBD = AcessExter.fromCursor(cursor)
+
+        assertEquals(acessExtTampoes, acessExtBD)
+
+        val cursorTodosAcessExter = tabelaAcessExter.consulta(
+            TabelaAcesExter.CAMPOS,
+            null, null, null, null,
+            TabelaAcesExter.CAMPO_NOME
+
+        )
+
+        assert(cursorTodosAcessExter.count > 1)
+    }
+
 }

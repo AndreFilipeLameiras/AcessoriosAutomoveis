@@ -16,7 +16,7 @@ abstract class TabelaDB(val db: SQLiteDatabase, val nome: String) {
     fun consulta(
         colunas: Array<String>,
         selecao: String?,
-        argsSelecao: Array<String?>,
+        argsSelecao: Array<String?>?,
         groupby: String?,
         having: String?,
         orderby: String?
