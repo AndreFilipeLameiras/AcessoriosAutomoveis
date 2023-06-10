@@ -34,4 +34,14 @@ class BdInstrumentedTest {
         assert(bd.isOpen)
 
     }
+
+    @Test
+    fun consegueInserirAcessorioInterior(){
+        val openHelper = BdAcessoriosOpenHelper(getAppContext())
+        val bd = openHelper.writableDatabase
+
+        val acessorio = AcessInter("radio", "sony", "autorradio")
+        val id = TabelaAcesInter(bd).insere(acessorio.toContentValues())
+        assertNotEquals(-1,id)
+    }
 }

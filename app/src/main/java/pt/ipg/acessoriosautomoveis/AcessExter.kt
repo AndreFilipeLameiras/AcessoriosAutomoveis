@@ -17,6 +17,6 @@ data class AcessExter(
         valores.put(TabelaAcesExter.CAMPO_COR, cor)
 
         return valores
-        
+
     }
 }
