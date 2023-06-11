@@ -216,4 +216,132 @@ class BdInstrumentedTest {
         assert(cursorTodosCarros.count > 1)
     }
 
+    @Test
+    fun consegueAlterarAcesInt(){
+        val bd = getWritableDatabasse()
+
+        val acessInter = AcessInter("..", "...", "...")
+        insereAcessInt(bd, acessInter)
+
+        acessInter.nome = "colunas"
+
+        val resgistosAlterados = TabelaAcesInter(bd).altera(
+            acessInter.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(acessInter.id.toString())
+        )
+
+        assertEquals(1, resgistosAlterados)
+
+    }
+
+    @Test
+    fun consegueAlterarAcesExt(){
+        val bd = getWritableDatabasse()
+
+        val acessExter = AcessExter("..", "..", "..")
+        insereAcessExt(bd, acessExter)
+
+        acessExter.nome = "colunas"
+
+        val resgistosAlterados = TabelaAcesExter(bd).altera(
+            acessExter.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(acessExter.id.toString())
+        )
+
+        assertEquals(1, resgistosAlterados)
+
+    }
+
+
+    @Test
+    fun consegueAlterarCarros(){
+        val bd = getWritableDatabasse()
+
+        val acessIntCortinas = AcessInter ("Cortinas", "Carlinea", "cortinas laterais")
+        insereAcessInt(bd, acessIntCortinas)
+
+        val acessIntAlmofada = AcessInter ("almofada", "tortugas", "almofada cervical")
+        insereAcessInt(bd, acessIntAlmofada)
+
+        val acessExtBarras = AcessExter ("Barras", "eagle one","prateadas")
+        insereAcessExt(bd, acessExtBarras)
+
+        val acessExtGancho = AcessExter ("Gancho", "Two", "preto")
+        insereAcessExt(bd, acessExtGancho)
+
+        val carro = Carro("mercedez", "amarelo", acessIntCortinas.id, acessExtGancho.id)
+        insereCarro(bd, carro)
+
+        carro.idAcessInter = acessIntAlmofada.id
+        carro.idAcessExter = acessExtBarras.id
+        carro.marca = "Opel"
+        carro.cor = "verde"
+
+        val registosAlterados = TabelaCarro(bd).altera(
+            carro.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(carro.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+
+    }
+
+
+    @Test
+    fun consegueApagarAcessInt(){
+        val bd = getWritableDatabasse()
+
+        val acessInt = AcessInter("","","")
+        insereAcessInt(bd, acessInt)
+
+        val registosEliminados = TabelaAcesInter(bd).elimina(
+            "${BaseColumns._ID}=?",
+            arrayOf(acessInt.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+    }
+
+    @Test
+    fun consegueApagarAcessExt(){
+        val bd = getWritableDatabasse()
+
+        val acessExt = AcessExter("","","")
+        insereAcessExt(bd, acessExt)
+
+        val registosEliminados = TabelaAcesExter(bd).elimina(
+            "${BaseColumns._ID}=?",
+            arrayOf(acessExt.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+    }
+
+
+    @Test
+    fun consegueApagarCarros(){
+        val bd = getWritableDatabasse()
+
+        val acessInt = AcessInter("isqueiro","bic","isqueiro")
+        insereAcessInt(bd, acessInt)
+
+        val acessExt = AcessExter("antena","autocubo","prateada")
+        insereAcessExt(bd, acessExt)
+
+        val carro = Carro("toyota","prateado",acessInt.id, acessExt.id)
+        insereCarro(bd, carro)
+
+
+        val registosEliminados = TabelaCarro(bd).elimina(
+            "${BaseColumns._ID}=?",
+            arrayOf(carro.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+    }
+
+
 }
