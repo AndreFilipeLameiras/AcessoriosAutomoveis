@@ -123,7 +123,7 @@ class CarroContentProvider : ContentProvider(){
 
 
     companion object{
-        private const val AUTORIDADE = "pt.ipg.carros"
+        private const val AUTORIDADE = "pt.ipg.acessoriosautomoveis"
 
         const val ACESSINTER = "acessorios de interior"
         const val ACESSEXTER = "acessorios de exterior"
