@@ -125,9 +125,9 @@ class CarroContentProvider : ContentProvider(){
     companion object{
         private const val AUTORIDADE = "pt.ipg.acessoriosautomoveis"
 
-        const val ACESSINTER = "acessorios de interior"
-        const val ACESSEXTER = "acessorios de exterior"
-        const val CARROS = "carros"
+        private const val ACESSINTER = "acessorios de interior"
+        private const val ACESSEXTER = "acessorios de exterior"
+        private const val CARROS = "carros"
 
         private const val URI_ACESSINTER = 100
         private const val URI_ACESSINTER_ID = 101
@@ -135,6 +135,12 @@ class CarroContentProvider : ContentProvider(){
         private const val URI_ACESSEXTER_ID = 201
         private const val URI_CARROS = 300
         private const val URI_CARROS_ID = 301
+
+        private val ENDERECO_BASE = Uri.parse("content://$AUTORIDADE")
+
+        val ENDERECO_ACESSiNTER = Uri.withAppendedPath(ENDERECO_BASE, ACESSINTER)
+        val ENDERECO_ACESSEXTER = Uri.withAppendedPath(ENDERECO_BASE, ACESSEXTER)
+        val ENDERECO_CARROS = Uri.withAppendedPath(ENDERECO_BASE, CARROS)
 
         fun uriMatcher() = UriMatcher(UriMatcher.NO_MATCH).apply {
             addURI(AUTORIDADE, ACESSINTER, URI_ACESSINTER)
