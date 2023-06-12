@@ -3,6 +3,7 @@ package pt.ipg.acessoriosautomoveis
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
@@ -14,7 +15,17 @@ class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<Ad
         }
 
     inner class ViewHolderCarro(contentor: View): ViewHolder(contentor) {
+        private val textViewMarca = contentor.findViewById<TextView>(R.id.textViewMarca)
+        private val textViewAcesInter = contentor.findViewById<TextView>(R.id.textViewAcesInter)
+        private val textViewAcesExter = contentor.findViewById<TextView>(R.id.textViewAcesExter)
+
         internal var carro: Carro? = null
+            set(value) {
+                field = value
+                textViewMarca.text = carro?.marca ?:""
+                textViewAcesInter.text = carro?.idAcessInter.toString()?: ""
+                textViewAcesExter.text = carro?.idAcessExter.toString()?: ""
+            }
     }
 
     /**
