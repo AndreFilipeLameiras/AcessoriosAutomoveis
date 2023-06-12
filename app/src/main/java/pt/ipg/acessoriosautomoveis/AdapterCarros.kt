@@ -13,8 +13,8 @@ class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<Ad
             notifyDataSetChanged()
         }
 
-    inner class ViewHolderCarro(itemView: View): ViewHolder(itemView) {
-
+    inner class ViewHolderCarro(contentor: View): ViewHolder(contentor) {
+        internal var carro: Carro? = null
     }
 
     /**
@@ -77,6 +77,7 @@ class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<Ad
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderCarro, position: Int) {
-        TODO("Not yet implemented")
+        cursor!!.move(position)
+        holder.carro = Carro.fromCursor(cursor!!)
     }
 }
