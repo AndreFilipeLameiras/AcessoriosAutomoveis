@@ -17,4 +17,10 @@
     <string name="andre_lameiras">Andre Lameiras</string>
     <string name="n_1700017">Nº 1700017</string>
     <string name="a_aplica_ao_mostra_acessorios_para_o_interior_e_o_exterior_para_carros">A aplicaçao mostra acessorios para o interior e o exterior para carros</string>
+
+
+    <string name="lista_carros_label">Carros</string>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="carros">carros</string>
 </resources>

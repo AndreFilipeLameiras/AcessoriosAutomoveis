@@ -24,14 +24,14 @@
         android:text="@string/acessorios_interior"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonAcessorios" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonCarros" />
 
     <Button
-        android:id="@+id/buttonAcessorios"
+        android:id="@+id/buttonCarros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/acessorios"
+        android:text="@string/carros"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
