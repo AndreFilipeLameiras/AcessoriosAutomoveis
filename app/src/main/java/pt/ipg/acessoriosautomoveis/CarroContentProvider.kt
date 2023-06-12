@@ -52,7 +52,17 @@ class CarroContentProvider : ContentProvider(){
     }
 
     override fun getType(uri: Uri): String? {
-        TODO("Not yet implemented")
+        val endereco = uriMatcher().match(uri)
+
+        return when (endereco){
+            URI_ACESSINTER -> "vnd.android.cursor.dir/$ACESSINTER"
+            URI_ACESSINTER_ID -> "vnd.android.cursor.item/$ACESSINTER"
+            URI_ACESSEXTER -> "vnd.android.cursor.dir/$ACESSEXTER"
+            URI_ACESSEXTER_ID -> "vnd.android.cursor.item/$ACESSEXTER"
+            URI_CARROS -> "vnd.android.cursor.dir/$CARROS"
+            URI_CARROS_ID -> "vnd.android.cursor.item/$CARROS"
+            else -> null
+        }
     }
 
     override fun insert(uri: Uri, values: ContentValues?): Uri? {
