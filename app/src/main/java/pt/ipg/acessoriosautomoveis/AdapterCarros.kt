@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class AdapterCarros : RecyclerView.Adapter<AdapterCarros.ViewHolderCarro>() {
+class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<AdapterCarros.ViewHolderCarro>() {
     var cursor: Cursor? = null
         set(value) {
             field = value
@@ -41,7 +41,9 @@ class AdapterCarros : RecyclerView.Adapter<AdapterCarros.ViewHolderCarro>() {
      * @see .onBindViewHolder
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderCarro {
-        TODO("Not yet implemented")
+        return ViewHolderCarro(
+        fragment.layoutInflater.inflate(R.layout.item_carro, parent, false)
+        )
     }
 
     /**
