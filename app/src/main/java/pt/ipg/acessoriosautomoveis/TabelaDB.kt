@@ -13,10 +13,10 @@ abstract class TabelaDB(val db: SQLiteDatabase, val nome: String) {
         db.insert(nome, null, valores)
 
 
-    fun consulta(
+    open fun consulta(
         colunas: Array<String>,
         selecao: String?,
-        argsSelecao: Array<String?>?,
+        argsSelecao: Array<String>?,
         groupby: String?,
         having: String?,
         orderby: String?

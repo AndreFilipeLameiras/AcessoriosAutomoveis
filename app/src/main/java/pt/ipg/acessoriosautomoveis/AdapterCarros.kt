@@ -23,8 +23,8 @@ class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<Ad
             set(value) {
                 field = value
                 textViewMarca.text = carro?.marca ?:""
-                textViewAcesInter.text = carro?.idAcessInter.toString()?: ""
-                textViewAcesExter.text = carro?.idAcessExter.toString()?: ""
+                textViewAcesInter.text = carro?.acessInter!!.nome?: ""
+                textViewAcesExter.text = carro?.acessExter!!.nome?: ""
             }
     }
 
@@ -88,7 +88,7 @@ class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<Ad
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderCarro, position: Int) {
-        cursor!!.move(position)
+        cursor!!.moveToPosition(position)
         holder.carro = Carro.fromCursor(cursor!!)
     }
 }

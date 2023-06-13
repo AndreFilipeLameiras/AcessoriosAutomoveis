@@ -87,7 +87,7 @@ class BdInstrumentedTest {
         insereAcessExt(bd, acessExt)
 
 
-        val carro1 = Carro("BMW", "branco", acessInt.id, acessInt.id)
+        val carro1 = Carro("BMW", "branco", acessInt, acessExt)
         insereCarro(bd, carro1)
 
 
@@ -187,14 +187,14 @@ class BdInstrumentedTest {
         val acessExt = AcessExter("tornilhos", "locks", "prateados")
         insereAcessExt(bd, acessExt)
 
-        val carro1 = Carro("Nissan", "vermelho", acessInt.id, acessExt.id)
+        val carro1 = Carro("Nissan", "vermelho", acessInt, acessExt)
         insereCarro(bd, carro1)
 
         val tabelaCarro = TabelaCarro(bd)
 
         val cursor = tabelaCarro.consulta(
             TabelaCarro.CAMPOS,
-            "${BaseColumns._ID}=?",
+            "${TabelaCarro.CAMPO_ID}=?",
             arrayOf(carro1.id.toString()),
             null,
             null,
@@ -271,11 +271,11 @@ class BdInstrumentedTest {
         val acessExtGancho = AcessExter ("Gancho", "Two", "preto")
         insereAcessExt(bd, acessExtGancho)
 
-        val carro = Carro("mercedez", "amarelo", acessIntCortinas.id, acessExtGancho.id)
+        val carro = Carro("mercedez", "amarelo", acessIntCortinas, acessExtGancho)
         insereCarro(bd, carro)
 
-        carro.idAcessInter = acessIntAlmofada.id
-        carro.idAcessExter = acessExtBarras.id
+        carro.acessInter = acessIntAlmofada
+        carro.acessExter = acessExtBarras
         carro.marca = "Opel"
         carro.cor = "verde"
 
@@ -331,7 +331,7 @@ class BdInstrumentedTest {
         val acessExt = AcessExter("antena","autocubo","prateada")
         insereAcessExt(bd, acessExt)
 
-        val carro = Carro("toyota","prateado",acessInt.id, acessExt.id)
+        val carro = Carro("toyota","prateado",acessInt, acessExt)
         insereCarro(bd, carro)
 
 
