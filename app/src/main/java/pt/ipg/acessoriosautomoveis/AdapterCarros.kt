@@ -19,6 +19,14 @@ class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<Ad
         private val textViewAcesInter = contentor.findViewById<TextView>(R.id.textViewAcesInter)
         private val textViewAcesExter = contentor.findViewById<TextView>(R.id.textViewAcesExter)
 
+        init {
+            contentor.setOnClickListener {
+                viewHolderSelecionado?.desSelecionado()
+                seleciona()
+            }
+        }
+
+
         internal var carro: Carro? = null
             set(value) {
                 field = value
@@ -26,7 +34,18 @@ class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<Ad
                 textViewAcesInter.text = carro?.acessInter!!.nome?: ""
                 textViewAcesExter.text = carro?.acessExter!!.nome?: ""
             }
+
+
+        fun seleciona(){
+            viewHolderSelecionado = this
+            itemView.setBackgroundResource(R.color.item_selecionado)
+        }
+        fun desSelecionado(){
+            itemView.setBackgroundResource(android.R.color.white)
+        }
     }
+
+    private var viewHolderSelecionado : ViewHolderCarro? = null
 
     /**
      * Called when RecyclerView needs a new [ViewHolder] of the given type to represent
