@@ -38,6 +38,7 @@ class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<Ad
 
         fun seleciona(){
             viewHolderSelecionado = this
+            fragment.carroSelecionado = carro
             itemView.setBackgroundResource(R.color.item_selecionado)
         }
         fun desSelecionado(){
