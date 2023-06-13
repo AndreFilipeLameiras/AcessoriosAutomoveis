@@ -22,6 +22,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="pt.ipg.acessoriosautomoveis"
+            android:name=".CarroContentProvider"
+            android:exported="false"
+            />
     </application>
 
 </manifest>
