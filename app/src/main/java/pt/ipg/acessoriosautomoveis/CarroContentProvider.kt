@@ -44,7 +44,7 @@ class CarroContentProvider : ContentProvider(){
         return tabela?.consulta(
             projection as Array<String>,
             selecao,
-            argsSel as Array<String?>,
+            argsSel as Array<String>?,
             null,
             null,
             sortOrder

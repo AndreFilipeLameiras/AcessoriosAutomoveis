@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace 'pt.ipg.acessoriosautomoveis'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "pt.ipg.acessoriosautomoveis"
