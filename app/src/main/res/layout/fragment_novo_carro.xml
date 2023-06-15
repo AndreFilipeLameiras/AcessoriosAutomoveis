@@ -12,30 +12,52 @@
         android:layout_margin="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextMarca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Marca" />
+            android:hint="@string/marca"
+            tools:ignore="VisualLintTextFieldSize,TextContrastCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextCor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="hint" />
+                android:hint="@string/cor"
+                tools:ignore="VisualLintTextFieldSize" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/acessorios_de_interior" />
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spinnerAcessInter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_margin="8dp"
+                android:minHeight="48dp"
+                tools:ignore="DuplicateSpeakableTextCheck" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/acessorios_de_exterior" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/spinnerAcessExter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_margin="8dp"
+                android:minHeight="48dp" />
         </com.google.android.material.textfield.TextInputLayout>
     </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

@@ -26,4 +26,8 @@
     <string name="adicionar">Adicionar</string>
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
+    <string name="acessorios_de_interior">Acessorios de Interior</string>
+    <string name="marca">Marca</string>
+    <string name="cor">Cor</string>
+    <string name="acessorios_de_exterior">Acessorios de Exterior</string>
 </resources>
