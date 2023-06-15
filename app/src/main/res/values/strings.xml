@@ -30,4 +30,6 @@
     <string name="marca">Marca</string>
     <string name="cor">Cor</string>
     <string name="acessorios_de_exterior">Acessorios de Exterior</string>
+    <string name="guardar">Guardar</string>
+    <string name="cancelar">Cancelar</string>
 </resources>
