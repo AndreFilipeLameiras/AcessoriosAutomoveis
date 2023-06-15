@@ -9,7 +9,7 @@ data class Carro(
     var cor: String,
     var acessInter: AcessInter,
     var acessExter: AcessExter,
-    var id: Long = -1
+    var id: Long? = -1
 ){
 
     fun toContentValues(): ContentValues{

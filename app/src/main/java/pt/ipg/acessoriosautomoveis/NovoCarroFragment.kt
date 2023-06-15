@@ -8,6 +8,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SimpleCursorAdapter
+import android.widget.Toast
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
@@ -61,19 +62,61 @@ class NovoCarroFragment : Fragment() , LoaderManager.LoaderCallbacks<Cursor>{
                 true
             }
             R.id.action_cancelar -> {
-                cancelar()
+                voltaListaCarros()
                 true
             }
             else -> false
         }
     }
 
-    private fun cancelar() {
+    private fun voltaListaCarros() {
         findNavController().navigate(R.id.action_novoCarroFragment_to_listaCarrosFragment)
     }
 
     private fun guardar() {
+        val marca = binding.editTextMarca.text.toString()
+        if (marca.isBlank()) {
+            binding.editTextMarca.error = getString(R.string.marca_obrigatoria)
+            binding.editTextMarca.requestFocus()
+            return
+        }
 
+        val cor = binding.editTextCor.text.toString()
+        if (cor.isBlank()){
+            binding.editTextCor.error = getString(R.string.cor_obrigatoria)
+            binding.editTextCor.requestFocus()
+            return
+        }
+
+        val acessInterId = binding.spinnerAcessInter.selectedItemId
+
+        val acessExterId = binding.spinnerAcessExter.selectedItemId
+
+
+
+
+
+        val carro = Carro(
+            marca,
+            cor,
+            AcessInter("", "", "", acessInterId),
+            AcessExter("","", "", acessExterId),
+            null
+
+        )
+
+        val id = requireActivity().contentResolver.insert(
+            CarroContentProvider.ENDERECO_CARROS,
+            carro.toContentValues()
+        )
+
+        if (id == null) {
+            binding.editTextMarca.error = getString(R.string.erro_guardar_carro)
+            return
+        }
+
+        Toast.makeText(requireContext(), getString(R.string.carro_guardado_com_sucesso), Toast.LENGTH_SHORT).show()
+        voltaListaCarros()
     }
 
     /**
