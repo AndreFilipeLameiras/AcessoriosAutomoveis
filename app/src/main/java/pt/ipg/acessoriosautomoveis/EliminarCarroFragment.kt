@@ -18,6 +18,8 @@ import pt.ipg.acessoriosautomoveis.databinding.FragmentEliminarCarroBinding
  */
 class EliminarCarroFragment : Fragment() {
 
+    private lateinit var carros: Carro
+
     private var _binding: FragmentEliminarCarroBinding? = null
     private val binding get() = _binding!!
 
@@ -36,6 +38,13 @@ class EliminarCarroFragment : Fragment() {
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
+
+        carros = EliminarCarroFragmentArgs.fromBundle(requireArguments()).carro
+
+        binding.textViewMarcas.text = carros.marca
+        binding.textViewCor.text = carros.cor
+        binding.textViewAcessInter.text = carros.acessInter.nome
+        binding.textViewAcessExter.text = carros.acessExter.nome
     }
 
     override fun onDestroyView() {
