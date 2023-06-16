@@ -60,5 +60,8 @@
         <action
             android:id="@+id/action_eliminarCarroFragment_to_listaCarrosFragment"
             app:destination="@id/listaCarrosFragment" />
+        <argument
+            android:name="carro"
+            app:argType="pt.ipg.carro.Carro" />
     </fragment>
 </navigation>
