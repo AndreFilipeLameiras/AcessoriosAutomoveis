@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:orientation="vertical"
     tools:context=".EliminarCarroFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/marca"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#DD2C00" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/textViewMarcas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Audi" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/cor"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#DD2C00" />
+
+    <TextView
+        android:id="@+id/textViewCor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Preta" />
+
+    <TextView
+        android:id="@+id/textViewMarcas4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/acessorios_de_interior"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#DD2C00" />
+
+    <TextView
+        android:id="@+id/textViewAcessInter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Radio" />
+
+    <TextView
+        android:id="@+id/textViewMarcas7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/acessorios_de_exterior"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#DD2C00" />
+
+    <TextView
+        android:id="@+id/textViewAcessExter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        tools:text="Capa" />
+
+</LinearLayout>
