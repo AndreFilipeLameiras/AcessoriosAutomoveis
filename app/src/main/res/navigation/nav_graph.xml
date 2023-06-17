@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_listaCarrosFragment"
             app:destination="@id/listaCarrosFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_listaAcessInteriorFragment"
+            app:destination="@id/listaAcessInteriorFragment" />
     </fragment>
     <fragment
         android:id="@+id/SobreFragment"
@@ -69,4 +72,13 @@
         android:name="pt.ipg.acessoriosautomoveis.NovoAcessInteriorFragment"
         android:label="fragment_novo_acess_interior"
         tools:layout="@layout/fragment_novo_acess_interior" />
+    <fragment
+        android:id="@+id/listaAcessInteriorFragment"
+        android:name="pt.ipg.acessoriosautomoveis.ListaAcessInteriorFragment"
+        android:label="fragment_lista_acess_interior"
+        tools:layout="@layout/fragment_lista_acess_interior" >
+        <action
+            android:id="@+id/action_listaAcessInteriorFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuPrincipalFragment" />
+    </fragment>
 </navigation>

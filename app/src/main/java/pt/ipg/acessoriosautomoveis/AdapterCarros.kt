@@ -31,8 +31,8 @@ class AdapterCarros(val fragment: ListaCarrosFragment) : RecyclerView.Adapter<Ad
             set(value) {
                 field = value
                 textViewMarca.text = carro?.marca ?:""
-                textViewAcesInter.text = carro?.acessInter!!.nome?: ""
-                textViewAcesExter.text = carro?.acessExter!!.nome?: ""
+                textViewAcesInter.text = carro?.acessInter?.nome?: ""
+                textViewAcesExter.text = carro?.acessExter?.nome?: ""
             }
 
 

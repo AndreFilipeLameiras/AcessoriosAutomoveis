@@ -25,7 +25,7 @@ private const val ID_LOADER_CARROS = 0
  * create an instance of this fragment.
  */
 class ListaCarrosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
-    // TODO: Rename and change types of parameters
+
     private var _binding: FragmentListaCarrosBinding? = null
     private val binding get() = _binding!!
 

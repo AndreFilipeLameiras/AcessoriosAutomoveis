@@ -41,6 +41,9 @@ class MenuPrincipalFragment : Fragment() {
         }
 
 
+        binding.buttonAceInterior.setOnClickListener {
+            findNavController().navigate(R.id.action_MenuPrincipalFragment_to_listaAcessInteriorFragment)
+        }
 
         val activity = activity as MainActivity
         activity.fragment = this
