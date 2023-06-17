@@ -6,7 +6,7 @@ import android.provider.BaseColumns
 
 class TabelaAcesExter (db: SQLiteDatabase): TabelaDB(db, NOME_TABELA) {
     override fun cria() {
-        db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA, $CAMPO_NOME TEXT NOT NULL, $CAMPO_MARCA TEXT NOT NULL, $CAMPO_COR TEXT )")
+        db.execSQL("CREATE TABLE $NOME_TABELA ($CHAVE_TABELA, $CAMPO_DESIGNACAO TEXT NOT NULL, $CAMPO_MARCA TEXT NOT NULL, $CAMPO_COR TEXT )")
 
     }
 
@@ -14,12 +14,12 @@ class TabelaAcesExter (db: SQLiteDatabase): TabelaDB(db, NOME_TABELA) {
         const val NOME_TABELA = "acessoriosExterior"
 
         const val CAMPO_ID = "$NOME_TABELA.${BaseColumns._ID}"
-        const val CAMPO_NOME = "nome"
+        const val CAMPO_DESIGNACAO = "designacao"
         const val CAMPO_MARCA = "marca"
         const val CAMPO_COR = "cor"
 
 
-        val CAMPOS = arrayOf(BaseColumns._ID, CAMPO_NOME, CAMPO_MARCA, CAMPO_COR)
+        val CAMPOS = arrayOf(BaseColumns._ID, CAMPO_DESIGNACAO, CAMPO_MARCA, CAMPO_COR)
     }
 
 }

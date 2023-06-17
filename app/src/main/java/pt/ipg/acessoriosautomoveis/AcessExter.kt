@@ -14,7 +14,7 @@ data class AcessExter(
     fun toContentValues(): ContentValues{
         val valores = ContentValues()
 
-        valores.put(TabelaAcesExter.CAMPO_NOME, nome)
+        valores.put(TabelaAcesExter.CAMPO_DESIGNACAO, nome)
         valores.put(TabelaAcesExter.CAMPO_MARCA, marca)
         valores.put(TabelaAcesExter.CAMPO_COR, cor)
 
@@ -26,7 +26,7 @@ data class AcessExter(
     companion object {
         fun fromCursor(cursor: Cursor): AcessInter{
             val posId = cursor.getColumnIndex(BaseColumns._ID)
-            val posNome = cursor.getColumnIndex(TabelaAcesExter.CAMPO_NOME)
+            val posNome = cursor.getColumnIndex(TabelaAcesExter.CAMPO_DESIGNACAO)
             val posMarca = cursor.getColumnIndex(TabelaAcesExter.CAMPO_MARCA)
             val posCor = cursor.getColumnIndex(TabelaAcesExter.CAMPO_COR)
 

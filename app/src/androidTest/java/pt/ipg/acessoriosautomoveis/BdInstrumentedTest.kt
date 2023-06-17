@@ -108,10 +108,10 @@ class BdInstrumentedTest {
         val bd = getWritableDatabasse()
 
         val acessIntPunho = AcessInter("Punho de mudanças", "BC", "classico curto costura")
-        assertNotEquals(-1, acessIntPunho)
+        insereAcessInt(bd, acessIntPunho)
 
         val acessIntTapete = AcessInter("tapete", "goodyear", "tapetes de borracha e alcatifa")
-        assertEquals(-1, acessIntTapete)
+        insereAcessInt(bd, acessIntTapete)
 
         val tabelaAcessInter = TabelaAcesInter(bd)
 
@@ -144,18 +144,18 @@ class BdInstrumentedTest {
     fun consegueLerAceExter(){
         val bd = getWritableDatabasse()
 
-        val acessExtCorrente = AcessExter("corrente", "goodyear", "cinzenta")
-        assertNotEquals(-1, acessExtCorrente)
+        val acessExtTampoes = AcessExter("tampoes", "bridgestone", "prateadas")
+        insereAcessExt(bd, acessExtTampoes)
 
-        val acessExtTampoes = AcessExter("tampoes", "bridgtone", "verde")
-        assertEquals(-1, acessExtTampoes)
+        val acessExtCorrente = AcessExter("corrente", "goodYear", "cinzentas")
+        insereAcessExt(bd, acessExtCorrente)
 
-        val tabelaAcessExter = TabelaAcesExter(bd)
+        val tabelaAcesExter = TabelaAcesExter(bd)
 
-        val cursor = tabelaAcessExter.consulta(
+        val cursor = tabelaAcesExter.consulta(
             TabelaAcesExter.CAMPOS,
             "${BaseColumns._ID}=?",
-            arrayOf(acessExtTampoes.id.toString()),
+            arrayOf(acessExtCorrente.id.toString()),
             null,
             null,
             null
@@ -165,16 +165,15 @@ class BdInstrumentedTest {
 
         val acessExtBD = AcessExter.fromCursor(cursor)
 
-        assertEquals(acessExtTampoes, acessExtBD)
+        assertEquals(acessExtCorrente, acessExtBD)
 
-        val cursorTodosAcessExter = tabelaAcessExter.consulta(
+        val cursorTodosAcesExt = tabelaAcesExter.consulta(
             TabelaAcesExter.CAMPOS,
-            null, null, null, null,
-            TabelaAcesExter.CAMPO_NOME
-
+            null,null, null, null,
+            TabelaAcesExter.CAMPO_DESIGNACAO
         )
 
-        assert(cursorTodosAcessExter.count > 1)
+        assert(cursorTodosAcesExt.count > 1)
     }
 
     @Test

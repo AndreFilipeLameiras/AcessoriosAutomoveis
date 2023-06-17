@@ -142,7 +142,7 @@ class NovoCarroFragment : Fragment() , LoaderManager.LoaderCallbacks<Cursor>{
             CarroContentProvider.ENDERECO_ACESSEXTER,
             TabelaAcesExter.CAMPOS,
             null, null,
-            TabelaAcesExter.CAMPO_NOME
+            TabelaAcesExter.CAMPO_DESIGNACAO
         )
     }
 
@@ -228,7 +228,7 @@ class NovoCarroFragment : Fragment() , LoaderManager.LoaderCallbacks<Cursor>{
             requireContext(),
             android.R.layout.simple_list_item_1,
             data,
-            arrayOf(TabelaAcesExter.CAMPO_NOME),
+            arrayOf(TabelaAcesExter.CAMPO_DESIGNACAO),
             intArrayOf(android.R.id.text1),
             0
         )

@@ -37,4 +37,7 @@
     <string name="cor_obrigatoria">Deve preencher a cor</string>
     <string name="carro_guardado_com_sucesso">CArro guardado com sucesso</string>
     <string name="erro_guardar_carro">Não foi possível guardar o carro</string>
+
+    <string name="carro_eliminado_com_sucesso">Carro eliminado com sucesso</string>
+    <string name="erro_eliminar_carro">Erro ao eliminar carro</string>
 </resources>
