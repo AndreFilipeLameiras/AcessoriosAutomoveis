@@ -3,6 +3,7 @@ package pt.ipg.acessoriosautomoveis
 import android.database.Cursor
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
@@ -15,7 +16,18 @@ class AdapterAcessExter(val fragment: ListaAcessExtFragment) : RecyclerView.Adap
         }
 
     inner class ViewHolderAcessExter(contentor: View) : ViewHolder(contentor) {
+        private val textViewNomeAcssExt = contentor.findViewById<TextView>(R.id.textViewNomeAcssExt)
+        private val textViewCategoria = contentor.findViewById<TextView>(R.id.textViewCategoria)
+        private val textViewCorAcessExt = contentor.findViewById<TextView>(R.id.textViewCorAcessExt)
+
         internal var acessExter: AcessExter? = null
+            set(value) {
+                field = value
+                textViewNomeAcssExt.text = acessExter?.nome ?: ""
+                textViewCategoria.text = acessExter?.categoria ?: ""
+                textViewCorAcessExt.text = acessExter?.cor ?: ""
+            }
+
     }
 
     /**

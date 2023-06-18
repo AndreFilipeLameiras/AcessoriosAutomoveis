@@ -5,8 +5,11 @@ import android.icu.text.Transliterator.Position
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import org.w3c.dom.Text
+import java.util.concurrent.TimeoutException
 
 class AdapterAcessInter(val fragment: ListaAcessInteriorFragment) : RecyclerView.Adapter<AdapterAcessInter.ViewHolderAcessInter>() {
     var cursor: Cursor? = null
@@ -16,7 +19,17 @@ class AdapterAcessInter(val fragment: ListaAcessInteriorFragment) : RecyclerView
         }
 
     inner class ViewHolderAcessInter(contentor: View): ViewHolder(contentor) {
+        private val textViewAcessInter = contentor.findViewById<TextView>(R.id.textViewNomeAcessInter)
+        private val textViewClasse = contentor.findViewById<TextView>(R.id.textViewClasse)
+        private val textViewDescricao = contentor.findViewById<TextView>(R.id.textViewDescricao)
+
         internal var acessInter: AcessInter? = null
+            set(value) {
+                field = value
+                textViewAcessInter.text = acessInter?.nome ?: ""
+                textViewClasse.text = acessInter?.classe ?: ""
+                textViewDescricao.text = acessInter?.descricao ?: ""
+            }
     }
 
     /**
