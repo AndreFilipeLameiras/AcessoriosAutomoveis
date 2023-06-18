@@ -11,6 +11,7 @@ import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.acessoriosautomoveis.databinding.FragmentListaAcessExtBinding
 
+private const val ID_LOADER_ACESS_EXT = 0
 
 /**
  * A simple [Fragment] subclass.
@@ -42,6 +43,9 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         val adapterAcessExt = AdapterAcessExter()
         binding.recyclerViewAcessExt.adapter = adapterAcessExt
         binding.recyclerViewAcessExt.layoutManager = LinearLayoutManager(requireContext())
+
+        val loader = LoaderManager.getInstance(this)
+        loader.initLoader(ID_LOADER_ACESS_EXT, null,  this)
     }
 
     companion object {

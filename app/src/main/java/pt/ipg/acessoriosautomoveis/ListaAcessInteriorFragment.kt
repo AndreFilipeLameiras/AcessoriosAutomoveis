@@ -11,7 +11,7 @@ import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.acessoriosautomoveis.databinding.FragmentListaAcessInteriorBinding
 
-
+private const val ID_LOADER_ACES_INTER = 0
 
 /**
  * A simple [Fragment] subclass.
@@ -43,6 +43,9 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
         val adapterAcessInter = AdapterAcessInter()
         binding.recyclerViewAcessInt.adapter = adapterAcessInter
         binding.recyclerViewAcessInt.layoutManager = LinearLayoutManager(requireContext())
+
+        val loader = LoaderManager.getInstance(this)
+        loader.initLoader(ID_LOADER_ACES_INTER, null, this)
     }
 
     companion object {
