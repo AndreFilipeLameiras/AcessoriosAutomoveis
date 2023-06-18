@@ -26,6 +26,8 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
 
     private val binding get() = _binding!!
 
+    var acessExterSelecionado: AcessExter? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

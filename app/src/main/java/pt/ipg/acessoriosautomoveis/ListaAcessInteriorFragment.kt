@@ -27,6 +27,8 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
 
     private val binding get() = _binding!!
 
+    var acessInterSelecionado: AcessInter? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -23,6 +23,13 @@ class AdapterAcessInter(val fragment: ListaAcessInteriorFragment) : RecyclerView
         private val textViewClasse = contentor.findViewById<TextView>(R.id.textViewClasse)
         private val textViewDescricao = contentor.findViewById<TextView>(R.id.textViewDescricao)
 
+        init {
+            contentor.setOnClickListener {
+                viewHolderSelecionado?.desSeleciona()
+                seleciona()
+            }
+        }
+
         internal var acessInter: AcessInter? = null
             set(value) {
                 field = value
@@ -30,7 +37,21 @@ class AdapterAcessInter(val fragment: ListaAcessInteriorFragment) : RecyclerView
                 textViewClasse.text = acessInter?.classe ?: ""
                 textViewDescricao.text = acessInter?.descricao ?: ""
             }
+        fun seleciona() {
+            viewHolderSelecionado = this
+            fragment.acessInterSelecionado = acessInter
+            itemView.setBackgroundResource(R.color.item_selecionado)
+        }
+
+         fun desSeleciona() {
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
     }
+
+
+
+    private var viewHolderSelecionado: ViewHolderAcessInter? = null
 
     /**
      * Called when RecyclerView needs a new [ViewHolder] of the given type to represent
@@ -86,7 +107,7 @@ class AdapterAcessInter(val fragment: ListaAcessInteriorFragment) : RecyclerView
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderAcessInter, position: Int) {
-        cursor!!.move(position)
+        cursor!!.moveToPosition(position)
         holder.acessInter = AcessInter.fromCursor(cursor!!)
     }
 

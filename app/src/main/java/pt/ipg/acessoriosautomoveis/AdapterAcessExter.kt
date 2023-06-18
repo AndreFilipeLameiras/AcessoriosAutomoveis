@@ -20,6 +20,13 @@ class AdapterAcessExter(val fragment: ListaAcessExtFragment) : RecyclerView.Adap
         private val textViewCategoria = contentor.findViewById<TextView>(R.id.textViewCategoria)
         private val textViewCorAcessExt = contentor.findViewById<TextView>(R.id.textViewCorAcessExt)
 
+        init {
+            contentor.setOnClickListener {
+                viewHolderSelecionado?.desSelecionado()
+                selecionado()
+            }
+        }
+
         internal var acessExter: AcessExter? = null
             set(value) {
                 field = value
@@ -28,7 +35,19 @@ class AdapterAcessExter(val fragment: ListaAcessExtFragment) : RecyclerView.Adap
                 textViewCorAcessExt.text = acessExter?.cor ?: ""
             }
 
+        fun selecionado(){
+            viewHolderSelecionado = this
+            fragment.acessExterSelecionado = acessExter
+            itemView.setBackgroundResource(R.color.item_selecionado)
+        }
+
+        fun desSelecionado(){
+            itemView.setBackgroundResource(android.R.color.white)
+        }
+
     }
+
+    private var viewHolderSelecionado : ViewHolderAcessExter? = null
 
     /**
      * Called when RecyclerView needs a new [ViewHolder] of the given type to represent
@@ -84,7 +103,7 @@ class AdapterAcessExter(val fragment: ListaAcessExtFragment) : RecyclerView.Adap
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderAcessExter, position: Int) {
-        cursor!!.move(position)
+        cursor!!.moveToPosition(position)
         holder.acessExter = AcessExter.fromCursor(cursor!!)
     }
 
