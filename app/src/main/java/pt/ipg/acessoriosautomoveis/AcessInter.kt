@@ -6,7 +6,7 @@ import android.provider.BaseColumns
 
 data class AcessInter(
     var nome: String,
-    var marca: String,
+    var classe: String,
     var descricao: String,
     var id: Long = -1
 ) {
@@ -15,7 +15,7 @@ data class AcessInter(
         val valores = ContentValues()
 
         valores.put(TabelaAcesInter.CAMPO_NOME, nome)
-        valores.put(TabelaAcesInter.CAMPO_MARCA, marca)
+        valores.put(TabelaAcesInter.CAMPO_CLASSE, classe)
         valores.put(TabelaAcesInter.CAMPO_DESCRICAO, descricao)
 
         return valores
@@ -25,15 +25,15 @@ data class AcessInter(
         fun fromCursor(cursor: Cursor): AcessInter{
             val posId = cursor.getColumnIndex(BaseColumns._ID)
             val posNome = cursor.getColumnIndex(TabelaAcesInter.CAMPO_NOME)
-            val posMarca = cursor.getColumnIndex(TabelaAcesInter.CAMPO_MARCA)
+            val posClasse = cursor.getColumnIndex(TabelaAcesInter.CAMPO_CLASSE)
             val posDescricao = cursor.getColumnIndex(TabelaAcesInter.CAMPO_DESCRICAO)
 
             val id = cursor.getLong(posId)
             val nome = cursor.getString(posNome)
-            val marca = cursor.getString(posMarca)
+            val classe = cursor.getString(posClasse)
             val descricao = cursor.getString(posDescricao)
 
-            return AcessInter(nome, marca, descricao, id)
+            return AcessInter(nome, classe, descricao, id)
 
         }
     }

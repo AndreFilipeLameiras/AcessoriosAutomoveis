@@ -190,7 +190,7 @@ class ListaCarrosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun adicionaCarro() {
-        findNavController().navigate(R.id.action_listaCarrosFragment_to_novoCarroFragment)
+        //findNavController().navigate(R.id.action_listaCarrosFragment_to_novoCarroFragment)
     }
 
 }

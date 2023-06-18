@@ -35,12 +35,12 @@ data class Carro(
 
             val posAcessIntFK = cursor.getColumnIndex(TabelaCarro.CAMPO_FK_ACESSINTER)
             val posNomeAcesInter = cursor.getColumnIndex(TabelaAcesInter.CAMPO_NOME)
-            val posMarcaAcesInter = cursor.getColumnIndex(TabelaAcesInter.CAMPO_MARCA)
+            val posMarcaAcesInter = cursor.getColumnIndex(TabelaAcesInter.CAMPO_CLASSE)
             val posDescricaoAcesInter = cursor.getColumnIndex(TabelaAcesInter.CAMPO_DESCRICAO)
 
             val posAcessExtFK = cursor.getColumnIndex(TabelaCarro.CAMPO_FK_ACESSEXTER)
             val posNomeAcesExter = cursor.getColumnIndex(TabelaAcesExter.CAMPO_DESIGNACAO)
-            val posMarcaAcessExter = cursor.getColumnIndex(TabelaAcesExter.CAMPO_MARCA)
+            val posMarcaAcessExter = cursor.getColumnIndex(TabelaAcesExter.CAMPO_CATEGORIA)
             val posCorAcesExter = cursor.getColumnIndex(TabelaAcesExter.CAMPO_COR)
 
 
