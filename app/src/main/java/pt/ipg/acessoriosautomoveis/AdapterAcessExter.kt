@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class AdapterAcessExter: RecyclerView.Adapter<AdapterAcessExter.ViewHolderAcessExter>() {
+class AdapterAcessExter(val fragment: ListaAcessExtFragment) : RecyclerView.Adapter<AdapterAcessExter.ViewHolderAcessExter>() {
 
     var cursor: Cursor? = null
         set(value) {
@@ -45,7 +45,9 @@ class AdapterAcessExter: RecyclerView.Adapter<AdapterAcessExter.ViewHolderAcessE
         parent: ViewGroup,
         viewType: Int
     ): AdapterAcessExter.ViewHolderAcessExter {
-        TODO("Not yet implemented")
+        return ViewHolderAcessExter(
+            fragment.layoutInflater.inflate(R.layout.item_acess_exter, parent, false)
+        )
     }
 
     /**
