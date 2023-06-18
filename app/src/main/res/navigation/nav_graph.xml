@@ -20,6 +20,9 @@
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_listaAcessInteriorFragment"
             app:destination="@id/listaAcessInteriorFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_listaAcessExtFragment"
+            app:destination="@id/listaAcessExtFragment" />
     </fragment>
     <fragment
         android:id="@+id/SobreFragment"
@@ -75,10 +78,19 @@
     <fragment
         android:id="@+id/listaAcessInteriorFragment"
         android:name="pt.ipg.acessoriosautomoveis.ListaAcessInteriorFragment"
-        android:label="fragment_lista_acess_interior"
-        tools:layout="@layout/fragment_lista_acess_interior" >
+        android:label="@string/acessorios_de_interior"
+        tools:layout="@layout/fragment_lista_acess_interior">
         <action
             android:id="@+id/action_listaAcessInteriorFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuPrincipalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaAcessExtFragment"
+        android:name="pt.ipg.acessoriosautomoveis.ListaAcessExtFragment"
+        android:label="@string/acessorios_de_exterior"
+        tools:layout="@layout/fragment_lista_acess_ext">
+        <action
+            android:id="@+id/action_listaAcessExtFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
     </fragment>
 </navigation>
