@@ -1,5 +1,6 @@
 package pt.ipg.acessoriosautomoveis
 
+import android.database.Cursor
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
 class AdapterAcessInter : RecyclerView.Adapter<AdapterAcessInter.ViewHolderAcessInter>() {
+    var cursor: Cursor? = null
+        set(value) {
+            field = value
+            notifyDataSetChanged()
+        }
+
     inner class ViewHolderAcessInter(itemView: View): ViewHolder(itemView) {
 
     }
