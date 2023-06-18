@@ -79,6 +79,6 @@ class AdapterAcessExter: RecyclerView.Adapter<AdapterAcessExter.ViewHolderAcessE
      * @return The total number of items in this adapter.
      */
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return cursor?.count ?: 0
     }
 }
