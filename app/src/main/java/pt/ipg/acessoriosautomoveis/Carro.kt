@@ -35,12 +35,12 @@ data class Carro(
 
             val posAcessIntFK = cursor.getColumnIndex(TabelaCarro.CAMPO_FK_ACESSINTER)
             val posNomeAcesInter = cursor.getColumnIndex(TabelaAcesInter.CAMPO_NOME)
-            val posMarcaAcesInter = cursor.getColumnIndex(TabelaAcesInter.CAMPO_CLASSE)
+            val posClasseAcesInter = cursor.getColumnIndex(TabelaAcesInter.CAMPO_CLASSE)
             val posDescricaoAcesInter = cursor.getColumnIndex(TabelaAcesInter.CAMPO_DESCRICAO)
 
             val posAcessExtFK = cursor.getColumnIndex(TabelaCarro.CAMPO_FK_ACESSEXTER)
             val posNomeAcesExter = cursor.getColumnIndex(TabelaAcesExter.CAMPO_DESIGNACAO)
-            val posMarcaAcessExter = cursor.getColumnIndex(TabelaAcesExter.CAMPO_CATEGORIA)
+            val posCategoriaAcessExter = cursor.getColumnIndex(TabelaAcesExter.CAMPO_CATEGORIA)
             val posCorAcesExter = cursor.getColumnIndex(TabelaAcesExter.CAMPO_COR)
 
 
@@ -51,16 +51,16 @@ data class Carro(
 
             val acessIntId = cursor.getLong(posAcessIntFK)
             val nomeAcesInter = cursor.getString(posNomeAcesInter)
-            val marcaAcessInter = cursor.getString(posMarcaAcesInter)
+            val classeAcessInter = cursor.getString(posClasseAcesInter)
             val descricaoAcessInter = cursor.getString(posDescricaoAcesInter)
-            val acessInter = AcessInter(nomeAcesInter, marcaAcessInter.toString(), descricaoAcessInter.toString(), acessIntId)
+            val acessInter = AcessInter(nomeAcesInter, classeAcessInter.toString(), descricaoAcessInter.toString(), acessIntId)
 
 
             val acessExtId = cursor.getLong(posAcessExtFK)
             val nomeAcessExter = cursor.getString(posNomeAcesExter)
-            val marcaAcesExter = cursor.getString(posMarcaAcessExter)
+            val categoriaAcesExter = cursor.getString(posCategoriaAcessExter)
             val corAcesExter = cursor.getString(posCorAcesExter)
-            val acessExter = AcessExter(nomeAcessExter, marcaAcesExter.toString(), corAcesExter.toString(), acessExtId)
+            val acessExter = AcessExter(nomeAcessExter, categoriaAcesExter.toString(), corAcesExter.toString(), acessExtId)
 
             return Carro(marca, cor, acessInter, acessExter , id)
         }

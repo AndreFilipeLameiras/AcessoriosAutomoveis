@@ -14,8 +14,8 @@ class AdapterAcessExter(val fragment: ListaAcessExtFragment) : RecyclerView.Adap
             notifyDataSetChanged()
         }
 
-    inner class ViewHolderAcessExter(itemView: View) : ViewHolder(itemView) {
-
+    inner class ViewHolderAcessExter(contentor: View) : ViewHolder(contentor) {
+        internal var acessExter: AcessExter? = null
     }
 
     /**
@@ -44,7 +44,7 @@ class AdapterAcessExter(val fragment: ListaAcessExtFragment) : RecyclerView.Adap
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): AdapterAcessExter.ViewHolderAcessExter {
+    ): ViewHolderAcessExter {
         return ViewHolderAcessExter(
             fragment.layoutInflater.inflate(R.layout.item_acess_exter, parent, false)
         )
@@ -71,8 +71,9 @@ class AdapterAcessExter(val fragment: ListaAcessExtFragment) : RecyclerView.Adap
      * item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
      */
-    override fun onBindViewHolder(holder: AdapterAcessExter.ViewHolderAcessExter, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ViewHolderAcessExter, position: Int) {
+        cursor!!.move(position)
+        holder.acessExter = AcessExter.fromCursor(cursor!!)
     }
 
     /**

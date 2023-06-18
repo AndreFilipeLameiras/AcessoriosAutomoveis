@@ -24,7 +24,7 @@ data class AcessExter(
 
 
     companion object {
-        fun fromCursor(cursor: Cursor): AcessInter{
+        fun fromCursor(cursor: Cursor): AcessExter{
             val posId = cursor.getColumnIndex(BaseColumns._ID)
             val posNome = cursor.getColumnIndex(TabelaAcesExter.CAMPO_DESIGNACAO)
             val posCategoria = cursor.getColumnIndex(TabelaAcesExter.CAMPO_CATEGORIA)
@@ -35,7 +35,7 @@ data class AcessExter(
             val categoria = cursor.getString(posCategoria)
             val cor = cursor.getString(posCor)
 
-            return AcessInter(nome, categoria, cor, id)
+            return AcessExter(nome, categoria, cor, id)
 
         }
     }

@@ -1,6 +1,7 @@
 package pt.ipg.acessoriosautomoveis
 
 import android.database.Cursor
+import android.icu.text.Transliterator.Position
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
@@ -14,8 +15,8 @@ class AdapterAcessInter(val fragment: ListaAcessInteriorFragment) : RecyclerView
             notifyDataSetChanged()
         }
 
-    inner class ViewHolderAcessInter(itemView: View): ViewHolder(itemView) {
-
+    inner class ViewHolderAcessInter(contentor: View): ViewHolder(contentor) {
+        internal var acessInter: AcessInter? = null
     }
 
     /**
@@ -71,8 +72,9 @@ class AdapterAcessInter(val fragment: ListaAcessInteriorFragment) : RecyclerView
      * item at the given position in the data set.
      * @param position The position of the item within the adapter's data set.
      */
-    override fun onBindViewHolder(holder: AdapterAcessInter.ViewHolderAcessInter, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ViewHolderAcessInter, position: Int) {
+        cursor!!.move(position)
+        holder.acessInter = AcessInter.fromCursor(cursor!!)
     }
 
     /**

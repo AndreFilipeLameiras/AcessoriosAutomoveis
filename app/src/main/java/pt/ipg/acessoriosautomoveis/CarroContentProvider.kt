@@ -41,7 +41,7 @@ class CarroContentProvider : ContentProvider(){
             else -> Pair(selection, selectionArgs)
         }
 
-        return tabela?.consulta(
+        return tabela!!.consulta(
             projection as Array<String>,
             selecao,
             argsSel as Array<String>?,
