@@ -4,6 +4,7 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
@@ -62,6 +63,7 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         loader.initLoader(ID_LOADER_ACESS_EXT, null,  this)
 
         val activity = activity as MainActivity
+        activity.fragment = this
         activity.idMenuAtual = R.menu.menu_lista_acess
     }
 
@@ -151,5 +153,34 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
         adapterAcessExter?.cursor = null
     }
 
+    fun processaOpcaoMenu(item: MenuItem): Boolean{
+        return when(item.itemId){
+            R.id.action_adicionar -> {
+                adicionaAcessExter()
+                true
+            }
+            R.id.action_editar -> {
+                editaAcessExter()
+                true
+            }
+            R.id.action_eliminar -> {
+                eliminaAcessExter()
+                true
+            }
+            else -> false
+        }
+    }
+
+    private fun adicionaAcessExter() {
+        TODO("Not yet implemented")
+    }
+
+    private fun editaAcessExter() {
+        TODO("Not yet implemented")
+    }
+
+    private fun eliminaAcessExter() {
+        TODO("Not yet implemented")
+    }
 
 }

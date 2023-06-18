@@ -4,6 +4,7 @@ import android.database.Cursor
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
@@ -62,6 +63,7 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
         loader.initLoader(ID_LOADER_ACES_INTER, null, this)
 
         val activity = activity as MainActivity
+        activity.fragment = this
         activity.idMenuAtual = R.menu.menu_lista_acess
     }
 
@@ -151,5 +153,35 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
         adapterAcessInte?.cursor = null
+    }
+
+    fun processaoOpcaoMenu(item: MenuItem): Boolean{
+        return when(item.itemId){
+            R.id.action_adicionar -> {
+                adicionaAcessInter()
+                true
+            }
+            R.id.action_editar -> {
+                editaAcessInter()
+                true
+            }
+            R.id.action_eliminar -> {
+                eliminaAcessInter()
+                true
+            }
+            else -> false
+        }
+    }
+
+    private fun adicionaAcessInter() {
+        TODO("Not yet implemented")
+    }
+
+    private fun editaAcessInter() {
+        TODO("Not yet implemented")
+    }
+
+    private fun eliminaAcessInter() {
+        TODO("Not yet implemented")
     }
 }
