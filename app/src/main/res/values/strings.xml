@@ -41,4 +41,12 @@
     <string name="carro_eliminado_com_sucesso">Carro eliminado com sucesso</string>
     <string name="erro_eliminar_carro">Erro ao eliminar carro</string>
     <string name="nome">Nome</string>
+    <string name="nome_obrigatorio">Nome obrigatorio</string>
+    <string name="classe_obrigatoria">Classe obrigatoria</string>
+    <string name="descricao_obrigatoria">Descriçao obrigatoria</string>
+    <string name="erro_guadar_acessorio_interior">Erro ao guardar acessorio de interior</string>
+    <string name="acessorio_int_guardado_com_sucesso">Acessorio de interior guardados com sucesso</string>
+    <string name="categoria_obrigatoria">Categoria obrigatoria</string>
+    <string name="erro_guadar_acessorio_exterior">Erro ao guardar o acessorio exterior</string>
+    <string name="acessorio_ext_guardado_com_sucesso">Acessorior exterior guardado com sucesso</string>
 </resources>
