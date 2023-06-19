@@ -40,4 +40,5 @@
 
     <string name="carro_eliminado_com_sucesso">Carro eliminado com sucesso</string>
     <string name="erro_eliminar_carro">Erro ao eliminar carro</string>
+    <string name="nome">Nome</string>
 </resources>

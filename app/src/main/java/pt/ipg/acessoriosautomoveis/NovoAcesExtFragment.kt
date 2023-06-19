@@ -5,11 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import pt.ipg.acessoriosautomoveis.databinding.FragmentNovoAcessInteriorBinding
+import pt.ipg.acessoriosautomoveis.databinding.FragmentNovoAcesExtBinding
 
 
-class NovoAcessInteriorFragment : Fragment() {
-    private var _binding: FragmentNovoAcessInteriorBinding? = null
+class NovoAcesExtFragment : Fragment() {
+
+    private var _binding: FragmentNovoAcesExtBinding? = null
 
     private val binding get() = _binding!!
 
@@ -20,7 +21,7 @@ class NovoAcessInteriorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentNovoAcessInteriorBinding.inflate(inflater, container, false)
+        _binding = FragmentNovoAcesExtBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -36,5 +37,4 @@ class NovoAcessInteriorFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

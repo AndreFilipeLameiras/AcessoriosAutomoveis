@@ -28,7 +28,15 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     private val binding get() = _binding!!
 
     var acessExterSelecionado: AcessExter? = null
+        set(value) {
+            field = value
 
+            val mostrarEliminarAlterar = (value != null)
+
+            val activity = activity as MainActivity
+            activity.mostraOpcaoMenu(R.id.action_editar, mostrarEliminarAlterar)
+            activity.mostraOpcaoMenu(R.id.action_eliminar, mostrarEliminarAlterar)
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
