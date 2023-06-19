@@ -40,10 +40,14 @@ class EditarAcessInteriorFragment : Fragment() {
         val acessInter = EditarAcessInteriorFragmentArgs.fromBundle(requireArguments()).acessInt
 
         if (acesInt != null) {
+            activity.atualizaTitulo(R.string.editar_ace_int_label)
+
             binding.editTextNomeInterior.setText(acesInt!!.nome)
             binding.editTextMarcaInterior.setText(acesInt!!.classe)
             binding.editTextDescricao.setText(acesInt!!.descricao)
 
+        }else {
+            activity.atualizaTitulo(R.string.novo_ace_int_label)
         }
 
         this.acesInt = acessInter

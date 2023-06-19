@@ -55,6 +55,10 @@
 
     <string name="acessorio_eliminado_com_sucesso">Acessorio eliminado com sucesso</string>
     <string name="erro_eliminar_acessorio">Erro ao eliminar acessorio</string>
+    <string name="editar_ace_int_label">Editar acessorio interior label</string>
+    <string name="novo_ace_int_label">Novo acessorio interior label</string>
+    <string name="editar_ace_ext_label">Editar acessorio de exterior label</string>
+    <string name="novo_ace_ext_label">Novo acessorio exterior label</string>
 
 
 </resources>

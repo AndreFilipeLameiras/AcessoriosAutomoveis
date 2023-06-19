@@ -41,9 +41,14 @@ class EditarAcesExtFragment : Fragment() {
         val acessExte = EditarAcesExtFragmentArgs.fromBundle(requireArguments()).acessExt
 
         if(acessExt != null){
+            activity.atualizaTitulo(R.string.editar_ace_ext_label)
+
+
             binding.editTextNomeExt.setText(acessExt!!.nome)
             binding.editTextMarcaExt.setText(acessExt!!.categoria)
             binding.ediTextCorExt.setText(acessExt!!.cor)
+        }else{
+            activity.atualizaTitulo(R.string.novo_ace_ext_label)
         }
 
         this.acessExt = acessExte
