@@ -1,7 +1,6 @@
 package pt.ipg.acessoriosautomoveis
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -65,11 +64,11 @@ class MainActivity : AppCompatActivity() {
             is EliminarCarroFragment -> (fragment as EliminarCarroFragment).processaOpcaoMenu(item)
 
             is ListaAcessInteriorFragment -> (fragment as ListaAcessInteriorFragment).processaoOpcaoMenu(item)
-            is NovoAcessInteriorFragment -> (fragment as NovoAcessInteriorFragment).processaOpcaoMenu(item)
+            is EditarAcessInteriorFragment -> (fragment as EditarAcessInteriorFragment).processaOpcaoMenu(item)
             is EliminarAcesIntFragment -> (fragment as EliminarAcesIntFragment).processaOpcaoMenu(item)
 
             is ListaAcessExtFragment -> (fragment as ListaAcessExtFragment).processaOpcaoMenu(item)
-            is NovoAcesExtFragment -> (fragment as NovoAcesExtFragment).processaOpcaoMenu(item)
+            is EditarAcesExtFragment -> (fragment as EditarAcesExtFragment).processaOpcaoMenu(item)
             is EliminarAcessExtFragment -> (fragment as EliminarAcessExtFragment).processaOpcaoMenu(item)
 
             else -> false

@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import pt.ipg.acessoriosautomoveis.databinding.FragmentNovoAcessInteriorBinding
+import pt.ipg.acessoriosautomoveis.databinding.FragmentEditarAcessInteriorBinding
 
 
-class NovoAcessInteriorFragment : Fragment() {
-    private var _binding: FragmentNovoAcessInteriorBinding? = null
+class EditarAcessInteriorFragment : Fragment() {
+    private var _binding: FragmentEditarAcessInteriorBinding? = null
 
     private val binding get() = _binding!!
 
@@ -23,7 +23,7 @@ class NovoAcessInteriorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentNovoAcessInteriorBinding.inflate(inflater, container, false)
+        _binding = FragmentEditarAcessInteriorBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -72,9 +72,9 @@
     </fragment>
     <fragment
         android:id="@+id/novoAcessInteriorFragment"
-        android:name="pt.ipg.acessoriosautomoveis.NovoAcessInteriorFragment"
-        android:label="Novo acessorio de Interior"
-        tools:layout="@layout/fragment_novo_acess_interior" >
+        android:name="pt.ipg.acessoriosautomoveis.EditarAcessInteriorFragment"
+        android:label="Editar acessorio de Interior"
+        tools:layout="@layout/fragment_editar_acess_interior">
         <action
             android:id="@+id/action_novoAcessInteriorFragment_to_listaAcessInteriorFragment"
             app:destination="@id/listaAcessInteriorFragment" />
@@ -111,9 +111,9 @@
     </fragment>
     <fragment
         android:id="@+id/novoAcesExtFragment"
-        android:name="pt.ipg.acessoriosautomoveis.NovoAcesExtFragment"
-        android:label="Novo acessorio de Exterior"
-        tools:layout="@layout/fragment_novo_aces_ext" >
+        android:name="pt.ipg.acessoriosautomoveis.EditarAcesExtFragment"
+        android:label="Editar acessorio de Exterior"
+        tools:layout="@layout/fragment_editar_aces_ext">
         <action
             android:id="@+id/action_novoAcesExtFragment_to_listaAcessExtFragment"
             app:destination="@id/listaAcessExtFragment" />

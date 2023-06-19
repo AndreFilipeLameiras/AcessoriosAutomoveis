@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="8dp"
     android:orientation="vertical"
-    tools:context=".NovoAcessInteriorFragment">
+    tools:context=".EditarAcesExtFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -13,10 +13,12 @@
         android:layout_margin="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNomeInterior"
+            android:id="@+id/editTextNomeExt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome" />
+            android:hint="@string/nome"
+            android:textColorHint="#757575"
+            tools:ignore="TextContrastCheck" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -24,10 +26,11 @@
             android:layout_marginTop="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextMarcaInterior"
+                android:id="@+id/editTextMarcaExt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Marca" />
+                android:hint="@string/marca"
+                tools:ignore="TextContrastCheck" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -35,11 +38,13 @@
                 android:layout_marginTop="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextDescricao"
+                    android:id="@+id/ediTextCorExt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Descriçao" />
+                    android:hint="@string/cor"
+                    tools:ignore="TextContrastCheck" />
             </com.google.android.material.textfield.TextInputLayout>
         </com.google.android.material.textfield.TextInputLayout>
+
     </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

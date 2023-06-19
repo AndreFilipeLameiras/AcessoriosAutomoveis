@@ -8,12 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
-import pt.ipg.acessoriosautomoveis.databinding.FragmentNovoAcesExtBinding
+import pt.ipg.acessoriosautomoveis.databinding.FragmentEditarAcesExtBinding
 
 
-class NovoAcesExtFragment : Fragment() {
+class EditarAcesExtFragment : Fragment() {
 
-    private var _binding: FragmentNovoAcesExtBinding? = null
+    private var _binding: FragmentEditarAcesExtBinding? = null
 
     private val binding get() = _binding!!
 
@@ -24,7 +24,7 @@ class NovoAcesExtFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentNovoAcesExtBinding.inflate(inflater, container, false)
+        _binding = FragmentEditarAcesExtBinding.inflate(inflater, container, false)
         return binding.root
     }
 

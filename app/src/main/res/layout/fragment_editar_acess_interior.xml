@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:layout_margin="8dp"
     android:orientation="vertical"
-    tools:context=".NovoAcesExtFragment">
+    tools:context=".EditarAcessInteriorFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -13,12 +13,10 @@
         android:layout_margin="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextNomeExt"
+            android:id="@+id/editTextNomeInterior"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/nome"
-            android:textColorHint="#757575"
-            tools:ignore="TextContrastCheck" />
+            android:hint="Nome" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -26,11 +24,10 @@
             android:layout_marginTop="8dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/editTextMarcaExt"
+                android:id="@+id/editTextMarcaInterior"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/marca"
-                tools:ignore="TextContrastCheck" />
+                android:hint="Marca" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -38,13 +35,11 @@
                 android:layout_marginTop="8dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ediTextCorExt"
+                    android:id="@+id/editTextDescricao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/cor"
-                    tools:ignore="TextContrastCheck" />
+                    android:hint="Descriçao" />
             </com.google.android.material.textfield.TextInputLayout>
         </com.google.android.material.textfield.TextInputLayout>
-
     </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>
