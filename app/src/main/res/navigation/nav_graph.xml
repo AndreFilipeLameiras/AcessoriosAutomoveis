@@ -90,6 +90,9 @@
         <action
             android:id="@+id/action_listaAcessInteriorFragment_to_novoAcessInteriorFragment"
             app:destination="@id/novoAcessInteriorFragment" />
+        <action
+            android:id="@+id/action_listaAcessInteriorFragment_to_eliminarAcesIntFragment"
+            app:destination="@id/eliminarAcesIntFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaAcessExtFragment"
@@ -102,6 +105,9 @@
         <action
             android:id="@+id/action_listaAcessExtFragment_to_novoAcesExtFragment"
             app:destination="@id/novoAcesExtFragment" />
+        <action
+            android:id="@+id/action_listaAcessExtFragment_to_eliminarAcessExtFragment"
+            app:destination="@id/eliminarAcessExtFragment" />
     </fragment>
     <fragment
         android:id="@+id/novoAcesExtFragment"
@@ -110,6 +116,24 @@
         tools:layout="@layout/fragment_novo_aces_ext" >
         <action
             android:id="@+id/action_novoAcesExtFragment_to_listaAcessExtFragment"
+            app:destination="@id/listaAcessExtFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarAcesIntFragment"
+        android:name="pt.ipg.acessoriosautomoveis.EliminarAcesIntFragment"
+        android:label="fragment_eliminar_aces_int"
+        tools:layout="@layout/fragment_eliminar_aces_int" >
+        <action
+            android:id="@+id/action_eliminarAcesIntFragment_to_listaAcessInteriorFragment"
+            app:destination="@id/listaAcessInteriorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarAcessExtFragment"
+        android:name="pt.ipg.acessoriosautomoveis.EliminarAcessExtFragment"
+        android:label="fragment_eliminar_acess_ext"
+        tools:layout="@layout/fragment_eliminar_acess_ext" >
+        <action
+            android:id="@+id/action_eliminarAcessExtFragment_to_listaAcessExtFragment"
             app:destination="@id/listaAcessExtFragment" />
     </fragment>
 </navigation>
