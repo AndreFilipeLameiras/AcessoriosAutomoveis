@@ -1,12 +1,15 @@
 package pt.ipg.acessoriosautomoveis
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import pt.ipg.acessoriosautomoveis.databinding.FragmentEliminarAcesIntBinding
 
 
@@ -69,7 +72,16 @@ class EliminarAcesIntFragment : Fragment() {
     }
 
     private fun eliminar() {
-        TODO("Not yet implemented")
+        val enderecoAcesInt = Uri.withAppendedPath(CarroContentProvider.ENDERECO_ACESSiNTER, acesInt.id.toString())
+
+        val numAceIntEliminados = requireActivity().contentResolver.delete(enderecoAcesInt, null, null)
+
+        if(numAceIntEliminados == 1){
+            Toast.makeText(requireContext(), getString(R.string.acessorio_eliminado_com_sucesso), Toast.LENGTH_LONG).show()
+            voltaListaAceInt()
+        }else{
+            Snackbar.make(binding.textViewNomeAcesIn, getString(R.string.erro_eliminar_acessorio),Snackbar.LENGTH_INDEFINITE)
+        }
     }
 
 

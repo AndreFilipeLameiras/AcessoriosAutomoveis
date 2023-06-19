@@ -52,4 +52,9 @@
     <string name="classe">Classe</string>
     <string name="descricao">Descriçao</string>
     <string name="categoria">Categoria</string>
+
+    <string name="acessorio_eliminado_com_sucesso">Acessorio eliminado com sucesso</string>
+    <string name="erro_eliminar_acessorio">Erro ao eliminar acessorio</string>
+
+
 </resources>
