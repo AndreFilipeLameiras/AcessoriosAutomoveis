@@ -71,13 +71,19 @@
             app:argType="pt.ipg.acessoriosautomoveis.Carro" />
     </fragment>
     <fragment
-        android:id="@+id/novoAcessInteriorFragment"
+        android:id="@+id/editarAcessInteriorFragment"
         android:name="pt.ipg.acessoriosautomoveis.EditarAcessInteriorFragment"
         android:label="Editar acessorio de Interior"
         tools:layout="@layout/fragment_editar_acess_interior">
         <action
-            android:id="@+id/action_novoAcessInteriorFragment_to_listaAcessInteriorFragment"
+            android:id="@+id/action_editarAcessInteriorFragment_to_listaAcessInteriorFragment"
             app:destination="@id/listaAcessInteriorFragment" />
+        <argument
+            android:name="acessInt"
+            app:argType="pt.ipg.acessoriosautomoveis.AcessInter"
+            app:nullable="true"
+            />
+
     </fragment>
     <fragment
         android:id="@+id/listaAcessInteriorFragment"
@@ -88,8 +94,8 @@
             android:id="@+id/action_listaAcessInteriorFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
         <action
-            android:id="@+id/action_listaAcessInteriorFragment_to_novoAcessInteriorFragment"
-            app:destination="@id/novoAcessInteriorFragment" />
+            android:id="@+id/action_listaAcessInteriorFragment_to_editarAcessInteriorFragment"
+            app:destination="@id/editarAcessInteriorFragment" />
         <action
             android:id="@+id/action_listaAcessInteriorFragment_to_eliminarAcesIntFragment"
             app:destination="@id/eliminarAcesIntFragment" />
@@ -103,20 +109,25 @@
             android:id="@+id/action_listaAcessExtFragment_to_MenuPrincipalFragment"
             app:destination="@id/MenuPrincipalFragment" />
         <action
-            android:id="@+id/action_listaAcessExtFragment_to_novoAcesExtFragment"
-            app:destination="@id/novoAcesExtFragment" />
+            android:id="@+id/action_listaAcessExtFragment_to_editarAcesExtFragment"
+            app:destination="@id/editarAcesExtFragment" />
         <action
             android:id="@+id/action_listaAcessExtFragment_to_eliminarAcessExtFragment"
             app:destination="@id/eliminarAcessExtFragment" />
     </fragment>
     <fragment
-        android:id="@+id/novoAcesExtFragment"
+        android:id="@+id/editarAcesExtFragment"
         android:name="pt.ipg.acessoriosautomoveis.EditarAcesExtFragment"
         android:label="Editar acessorio de Exterior"
         tools:layout="@layout/fragment_editar_aces_ext">
         <action
-            android:id="@+id/action_novoAcesExtFragment_to_listaAcessExtFragment"
+            android:id="@+id/action_editarAcesExtFragment_to_listaAcessExtFragment"
             app:destination="@id/listaAcessExtFragment" />
+        <argument
+            android:name="acessExt"
+            app:argType="pt.ipg.acessoriosautomoveis.AcessExter"
+            app:nullable="true"
+            />
     </fragment>
     <fragment
         android:id="@+id/eliminarAcesIntFragment"
@@ -128,7 +139,7 @@
             app:destination="@id/listaAcessInteriorFragment" />
         <argument
             android:name="acessorioInte"
-            app:argType="pt.ipg.acessoriosautomoveis.Carro" />
+            app:argType="pt.ipg.acessoriosautomoveis.AcessInter" />
     </fragment>
     <fragment
         android:id="@+id/eliminarAcessExtFragment"
@@ -140,6 +151,6 @@
             app:destination="@id/listaAcessExtFragment" />
         <argument
             android:name="acessorioExt"
-            app:argType="pt.ipg.acessoriosautomoveis.Carro" />
+            app:argType="pt.ipg.acessoriosautomoveis.AcessExter" />
     </fragment>
 </navigation>

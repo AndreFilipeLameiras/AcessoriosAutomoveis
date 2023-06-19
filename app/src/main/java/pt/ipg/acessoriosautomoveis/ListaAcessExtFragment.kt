@@ -181,11 +181,13 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     }
 
     private fun adicionaAcessExter() {
-        findNavController().navigate(R.id.action_listaAcessExtFragment_to_novoAcesExtFragment)
+        val acao = ListaAcessExtFragmentDirections.actionListaAcessExtFragmentToEditarAcesExtFragment(acessExterSelecionado!!)
+        findNavController().navigate(acao)
     }
 
     private fun editaAcessExter() {
-        TODO("Not yet implemented")
+        val acao = ListaAcessExtFragmentDirections.actionListaAcessExtFragmentToEditarAcesExtFragment(acessExterSelecionado!!)
+        findNavController().navigate(acao)
     }
 
     private fun eliminaAcessExter() {

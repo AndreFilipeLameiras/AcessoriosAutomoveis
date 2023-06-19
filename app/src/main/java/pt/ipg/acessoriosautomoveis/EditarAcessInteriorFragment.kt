@@ -12,6 +12,8 @@ import pt.ipg.acessoriosautomoveis.databinding.FragmentEditarAcessInteriorBindin
 
 
 class EditarAcessInteriorFragment : Fragment() {
+    private var acesInt: AcessInter?= null
+
     private var _binding: FragmentEditarAcessInteriorBinding? = null
 
     private val binding get() = _binding!!
@@ -33,6 +35,18 @@ class EditarAcessInteriorFragment : Fragment() {
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_guardar_cancelar
+
+        val acessInter = EditarAcessInteriorFragmentArgs.fromBundle(requireArguments()).acessInt
+
+        if (acesInt != null) {
+            binding.editTextNomeInterior.setText(acesInt!!.nome)
+            binding.editTextMarcaInterior.setText(acesInt!!.classe)
+            binding.editTextDescricao.setText(acesInt!!.descricao)
+
+        }
+
+        this.acesInt = acessInter
+
     }
 
     override fun onDestroyView() {
@@ -55,7 +69,7 @@ class EditarAcessInteriorFragment : Fragment() {
     }
 
     private fun voltaListaAcesInter() {
-        findNavController().navigate(R.id.action_novoAcessInteriorFragment_to_listaAcessInteriorFragment)
+        findNavController().navigate(R.id.action_editarAcessInteriorFragment_to_listaAcessInteriorFragment)
     }
 
     private fun guardar() {

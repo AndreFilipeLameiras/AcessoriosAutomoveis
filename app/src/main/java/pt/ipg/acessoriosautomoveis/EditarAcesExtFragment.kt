@@ -13,6 +13,8 @@ import pt.ipg.acessoriosautomoveis.databinding.FragmentEditarAcesExtBinding
 
 class EditarAcesExtFragment : Fragment() {
 
+    private var acessExt: AcessExter?= null
+
     private var _binding: FragmentEditarAcesExtBinding? = null
 
     private val binding get() = _binding!!
@@ -34,6 +36,18 @@ class EditarAcesExtFragment : Fragment() {
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_guardar_cancelar
+
+        val acessExte = EditarAcesExtFragmentArgs.fromBundle(requireArguments()).acessExt
+
+        if(acessExt != null){
+            binding.editTextNomeExt.setText(acessExt!!.nome)
+            binding.editTextMarcaExt.setText(acessExt!!.categoria)
+            binding.ediTextCorExt.setText(acessExt!!.cor)
+        }
+
+        this.acessExt = acessExte
+
+
     }
 
     override fun onDestroyView() {
@@ -56,7 +70,7 @@ class EditarAcesExtFragment : Fragment() {
     }
 
     private fun voltaListaAcesExt() {
-        findNavController().navigate(R.id.action_novoAcesExtFragment_to_listaAcessExtFragment)
+        findNavController().navigate(R.id.action_editarAcesExtFragment_to_listaAcessExtFragment)
     }
 
     private fun guardar() {
