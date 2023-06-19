@@ -19,11 +19,7 @@ private const val ID_LOADER_ACES_INTER = 0
 
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ListaAcessInteriorFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private var _binding: FragmentListaAcessInteriorBinding? = null
 
@@ -48,7 +44,7 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentListaAcessInteriorBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -76,9 +72,7 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
         activity.idMenuAtual = R.menu.menu_lista_acess
     }
 
-    companion object {
 
-    }
 
     /**
      * Instantiate and return a new Loader for the given ID.
@@ -124,7 +118,7 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
      * them to you through new calls here.  You should not monitor the
      * data yourself.  For example, if the data is a [android.database.Cursor]
      * and you place it in a [android.widget.CursorAdapter], use
-     * the [android.widget.CursorAdapter.CursorAdapter] constructor *without* passing
+     * the [android.widget.CursorAdapter] constructor *without* passing
      * in either [android.widget.CursorAdapter.FLAG_AUTO_REQUERY]
      * or [android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER]
      * (that is, use 0 for the flags argument).  This prevents the CursorAdapter
@@ -161,7 +155,10 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
      * @param loader The Loader that is being reset.
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        adapterAcessInte?.cursor = null
+        if(adapterAcessInte != null){
+            adapterAcessInte?.cursor = null
+        }
+
     }
 
     fun processaoOpcaoMenu(item: MenuItem): Boolean{

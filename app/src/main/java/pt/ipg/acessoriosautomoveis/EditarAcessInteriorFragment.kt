@@ -24,7 +24,7 @@ class EditarAcessInteriorFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentEditarAcessInteriorBinding.inflate(inflater, container, false)
         return binding.root

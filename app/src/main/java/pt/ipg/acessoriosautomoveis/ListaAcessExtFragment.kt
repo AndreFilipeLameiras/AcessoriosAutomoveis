@@ -18,11 +18,7 @@ private const val ID_LOADER_ACESS_EXT = 0
 
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ListaAcessExtFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     private var _binding: FragmentListaAcessExtBinding? = null
 
@@ -47,7 +43,7 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentListaAcessExtBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -159,7 +155,10 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
      * @param loader The Loader that is being reset.
      */
     override fun onLoaderReset(loader: Loader<Cursor>) {
-        adapterAcessExter?.cursor = null
+        if(adapterAcessExter != null){
+            adapterAcessExter?.cursor = null
+        }
+
     }
 
     fun processaOpcaoMenu(item: MenuItem): Boolean{
