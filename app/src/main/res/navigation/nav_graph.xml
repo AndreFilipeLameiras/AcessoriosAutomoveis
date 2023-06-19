@@ -126,6 +126,9 @@
         <action
             android:id="@+id/action_eliminarAcesIntFragment_to_listaAcessInteriorFragment"
             app:destination="@id/listaAcessInteriorFragment" />
+        <argument
+            android:name="acessorioInte"
+            app:argType="pt.ipg.acessoriosautomoveis.Carro" />
     </fragment>
     <fragment
         android:id="@+id/eliminarAcessExtFragment"
@@ -135,5 +138,8 @@
         <action
             android:id="@+id/action_eliminarAcessExtFragment_to_listaAcessExtFragment"
             app:destination="@id/listaAcessExtFragment" />
+        <argument
+            android:name="acessorioExt"
+            app:argType="pt.ipg.acessoriosautomoveis.Carro" />
     </fragment>
 </navigation>
