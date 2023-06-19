@@ -11,6 +11,8 @@ import pt.ipg.acessoriosautomoveis.databinding.FragmentEliminarAcessExtBinding
 
 
 class EliminarAcessExtFragment : Fragment() {
+    private lateinit var acesExt: AcessExter
+
     private var _binding: FragmentEliminarAcessExtBinding? = null
 
     private val binding get() = _binding!!
@@ -31,6 +33,12 @@ class EliminarAcessExtFragment : Fragment() {
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
+
+        acesExt = EliminarAcessExtFragmentArgs.fromBundle(requireArguments()).acessorioExt
+
+        binding.textViewNomeAceExt.text = acesExt.nome
+        binding.textViewCategoriaAceExt.text = acesExt.categoria
+        binding.textViewCorAceExt.text = acesExt.cor
     }
 
     override fun onDestroyView() {

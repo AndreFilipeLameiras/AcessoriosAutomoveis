@@ -189,7 +189,8 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     }
 
     private fun eliminaAcessExter() {
-        TODO("Not yet implemented")
+        val acao = ListaAcessExtFragmentDirections.actionListaAcessExtFragmentToEliminarAcessExtFragment(acessExterSelecionado!!)
+        findNavController().navigate(acao)
     }
 
 }

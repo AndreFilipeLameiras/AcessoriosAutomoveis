@@ -191,6 +191,7 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
     }
 
     private fun eliminaAcessInter() {
-        TODO("Not yet implemented")
+        val acao = ListaAcessInteriorFragmentDirections.actionListaAcessInteriorFragmentToEliminarAcesIntFragment(acessInterSelecionado!!)
+        findNavController().navigate(acao)
     }
 }
