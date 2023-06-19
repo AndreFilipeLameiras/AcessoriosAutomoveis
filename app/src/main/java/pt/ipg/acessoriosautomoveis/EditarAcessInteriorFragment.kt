@@ -1,5 +1,6 @@
 package pt.ipg.acessoriosautomoveis
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -94,13 +95,44 @@ class EditarAcessInteriorFragment : Fragment() {
             return
         }
 
+        if(acesInt == null){
+            val acessInter = AcessInter(
+                nome,
+                classe,
+                descricao
+            )
+            insereAcessInt(acessInter)
+        }else {
+            val acessInt = acesInt!!
+            acessInt.nome = nome
+            acessInt.classe = classe
+            acessInt.descricao = descricao
 
-        val acessInter = AcessInter(
-            nome,
-            classe,
-            descricao
-        )
+            alteraAcessInt(acessInt)
+        }
 
+
+
+    }
+
+    private fun alteraAcessInt(acessInt: AcessInter) {
+
+        val enderecoAcessInt = Uri.withAppendedPath(CarroContentProvider.ENDERECO_ACESSiNTER, acessInt.id.toString())
+        val acessIntAlterados = requireActivity().contentResolver.update(enderecoAcessInt, acessInt.toContentValues(), null, null)
+
+        if (acessIntAlterados == 1) {
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.acessorio_int_guardado_com_sucesso),
+                Toast.LENGTH_SHORT
+            ).show()
+            voltaListaAcesInter()
+        }else {
+            binding.editTextNomeInterior.error = getString(R.string.erro_guadar_acessorio_interior)
+        }
+    }
+
+    private fun insereAcessInt(acessInter: AcessInter) {
         val id = requireActivity().contentResolver.insert(
             CarroContentProvider.ENDERECO_ACESSiNTER,
             acessInter.toContentValues()
@@ -110,10 +142,11 @@ class EditarAcessInteriorFragment : Fragment() {
             binding.editTextNomeInterior.error = getString(R.string.erro_guadar_acessorio_interior)
             return
         }
+
+
+
         Toast.makeText(requireContext(), getString(R.string.acessorio_int_guardado_com_sucesso), Toast.LENGTH_SHORT).show()
         voltaListaAcesInter()
-
-
     }
 
 }

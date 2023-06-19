@@ -1,5 +1,6 @@
 package pt.ipg.acessoriosautomoveis
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -95,13 +96,38 @@ class EditarAcesExtFragment : Fragment() {
             return
         }
 
+        if(acessExt == null) {
+            val acessExter = AcessExter(
+                nome,
+                categoria,
+                cor
+            )
+            insereAcessExt(acessExter)
+        }else {
+            val acessEx = acessExt!!
+            acessEx.nome = nome
+            acessEx.categoria = categoria
+            acessEx.cor = cor
 
-        val acessExter = AcessExter(
-            nome,
-            categoria,
-            cor
-        )
+            alteraAcesExt(acessEx)
+        }
 
+
+    }
+
+    private fun alteraAcesExt(acessEx: AcessExter) {
+        val enderecoAcesExt = Uri.withAppendedPath(CarroContentProvider.ENDERECO_ACESSEXTER, acessEx.id.toString())
+        val acessExtAlterados = requireActivity().contentResolver.update(enderecoAcesExt, acessEx.toContentValues(), null, null)
+
+        if(acessExtAlterados == 1){
+            Toast.makeText(requireContext(), getString(R.string.acessorio_ext_guardado_com_sucesso), Toast.LENGTH_SHORT).show()
+            voltaListaAcesExt()
+        }else {
+            binding.editTextNomeExt.error = getString(R.string.erro_guadar_acessorio_exterior)
+        }
+    }
+
+    private fun insereAcessExt(acessExter: AcessExter) {
         val id = requireActivity().contentResolver.insert(
             CarroContentProvider.ENDERECO_ACESSEXTER,
             acessExter.toContentValues()

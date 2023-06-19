@@ -183,7 +183,7 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
     }
 
     private fun adicionaAcessInter() {
-        val acao = ListaAcessInteriorFragmentDirections.actionListaAcessInteriorFragmentToEditarAcessInteriorFragment(acessInterSelecionado!!)
+        val acao = ListaAcessInteriorFragmentDirections.actionListaAcessInteriorFragmentToEditarAcessInteriorFragment(null)
         findNavController().navigate(acao)
     }
 
