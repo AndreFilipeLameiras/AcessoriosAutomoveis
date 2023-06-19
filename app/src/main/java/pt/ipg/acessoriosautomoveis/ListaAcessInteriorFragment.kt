@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.acessoriosautomoveis.databinding.FragmentListaAcessInteriorBinding
 
@@ -182,7 +183,7 @@ class ListaAcessInteriorFragment : Fragment(), LoaderManager.LoaderCallbacks<Cur
     }
 
     private fun adicionaAcessInter() {
-        TODO("Not yet implemented")
+        findNavController().navigate(R.id.action_listaAcessInteriorFragment_to_novoAcessInteriorFragment)
     }
 
     private fun editaAcessInter() {

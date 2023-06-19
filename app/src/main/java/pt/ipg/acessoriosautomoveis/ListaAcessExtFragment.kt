@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.acessoriosautomoveis.databinding.FragmentListaAcessExtBinding
 
@@ -180,7 +181,7 @@ class ListaAcessExtFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
     }
 
     private fun adicionaAcessExter() {
-        TODO("Not yet implemented")
+        findNavController().navigate(R.id.action_listaAcessExtFragment_to_novoAcesExtFragment)
     }
 
     private fun editaAcessExter() {

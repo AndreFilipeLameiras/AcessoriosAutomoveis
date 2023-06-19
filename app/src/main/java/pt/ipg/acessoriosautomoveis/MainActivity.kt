@@ -65,8 +65,10 @@ class MainActivity : AppCompatActivity() {
             is EliminarCarroFragment -> (fragment as EliminarCarroFragment).processaOpcaoMenu(item)
 
             is ListaAcessInteriorFragment -> (fragment as ListaAcessInteriorFragment).processaoOpcaoMenu(item)
+            is NovoAcessInteriorFragment -> (fragment as NovoAcessInteriorFragment).processaOpcaoMenu(item)
 
             is ListaAcessExtFragment -> (fragment as ListaAcessExtFragment).processaOpcaoMenu(item)
+            is NovoAcesExtFragment -> (fragment as NovoAcesExtFragment).processaOpcaoMenu(item)
             else -> false
         }
 
